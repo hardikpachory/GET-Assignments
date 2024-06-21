@@ -14,11 +14,19 @@ public class Cart {
 	}
 
 	void addToCart(Item item, Integer quantity) {
+		if(!myCart.containsKey(item)) {
 		myCart.put(item, quantity);
 		System.out.println("Item Added: " + item);
+		}
+		else {
+			System.out.println("Item already exists.");
+		}
 	}
 	
 	Integer displayQty(Item item) {
+		if(!myCart.containsKey(item)) {
+			return -1;
+		}
 		return myCart.get(item);
 	}
 	
