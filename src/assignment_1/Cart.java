@@ -15,7 +15,7 @@ public class Cart {
 
 	void addToCart(Item item, Integer quantity) {
 		myCart.put(item, quantity);
-		System.out.println("Item Added!");
+		System.out.println("Item Added: " + item);
 	}
 	
 	Integer displayQty(Item item) {
@@ -24,16 +24,17 @@ public class Cart {
 	
 	void updateQty(Item item, Integer quantity) {
 		if(myCart.replace(item, quantity)!=null) {
-			System.out.println("Updated!");
+			System.out.println("Updated Item: " + item);
 		}
-		else System.out.println("Itemnot found. Item Inserted");
+		else System.out.println("Item not found. Item Inserted: " + item);
 	}
 	
-	Integer deleteItem(Item item) {
+	void deleteItem(Item item) {
 		if(myCart.containsKey(item)) {
-			return myCart.get(item);
+			System.out.println("Item Removed: " + item);
+			myCart.remove(item);
 		}
-		return -1;
+		else System.out.println("Item Not Found.");
 	}
 	
 	double displayBill() {
