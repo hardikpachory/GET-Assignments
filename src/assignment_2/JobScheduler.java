@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class JobScheduler {
 	/**
 	 * Calculate and returns the completion time of the processes
-	 * @param processes  Two dimensional integer array 
-	 * @return     Integer array with completion time
+	 * @param processes  Two dimensional integer array containing arrival and burst time
+	 * @return           Integer array with completion time
 	 */
 	static int[] getCompletionTime(int [][] processes) {
 		int length = processes.length;
@@ -31,9 +31,9 @@ public class JobScheduler {
 	
 	/**
 	 * Calculate and returns the Turn around time of the processes
-	 * @param process
-	 * @param completionTime
-	 * @return
+	 * @param process          Two dimensional array containing arrival and burst time 
+	 * @param completionTime   One dimensional array containing completion time
+	 * @return                 Integer array with turn around time
 	 */
 	private static int[] getTurnAroundTime(int[][] process, int[] completionTime) {
 		int length = completionTime.length;
@@ -46,9 +46,9 @@ public class JobScheduler {
 	
 	/**
 	 * Calculate and returns the Waiting time of the processes
-	 * @param process
-	 * @param turnAroundTime
-	 * @return
+	 * @param process         Two dimensional array containing arrival and burst time
+	 * @param turnAroundTime  One dimensional array containing turn around time
+	 * @return                Integer array with waiting time
 	 */
 	private static int[] getWaitingTime(int[][] process, int[] turnAroundTime) {
 		int length = turnAroundTime.length;
@@ -61,8 +61,8 @@ public class JobScheduler {
 	
 	/**
 	 * Calculate and returns the average waiting time of the process
-	 * @param waitingTime
-	 * @return
+	 * @param waitingTime  Integer array containing waiting time of processes 
+	 * @return             average waiting time in double type
 	 */
 	private static double getAvgWaitingTime(int[] waitingTime) {
 		double avgWaitingTime = 0;
@@ -75,8 +75,8 @@ public class JobScheduler {
 	
 	/**
 	 * Calculate and returns the average waiting time of the process
-	 * @param waitingTime
-	 * @return
+	 * @param waitingTime  Array of waiting time of each process
+	 * @return             Maximum value in the array waiting time 
 	 */
 	private static double getMaxWaitingTime(int[] waitingTime) {
 		double maxWaitingTime = waitingTime[0];
