@@ -1,7 +1,9 @@
 package assignment_3;
 
 public class StringOperations {
-
+	
+	static String string;
+	
 	static int isEqual(String firstString, String secondString) {
 		if(firstString.length() != secondString.length()) {
 			return 0;
@@ -20,11 +22,17 @@ public class StringOperations {
 		return 1;
 	}
 	
+	static String reverseString(String string) {
+		String reversedString = "";
+		int lastPosition = string.length()-1; 
+		for(int i= lastPosition; i>=0; i--) {
+			reversedString += string.charAt(i);
+		}
+		return reversedString;
+	}
+	
 	public static void main(String[] args) {
-		System.out.println(isEqual("abc", "def"));
-		System.out.println(isEqual("abc", "de"));
-		System.out.println(isEqual("ab", "def"));
-		System.out.println(isEqual("abc", "abc"));
+		
 	}
 
 }

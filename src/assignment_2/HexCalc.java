@@ -19,6 +19,9 @@ public class HexCalc {
 	static int numberSystemBase;
 	static Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * Input for Mathematical and Logical Operations
+	 */
 	static void takeOperationalInput() {
 		System.out.print("Enter number: ");
         firstNumber = sc.next();
@@ -28,6 +31,9 @@ public class HexCalc {
         numberSystemBase = sc.nextInt();
 	}
 	
+	/**
+	 * Input for Conversion operations
+	 */
 	static void takeInput() {
 		System.out.print("Enter number: ");
 		firstNumber = sc.next();
@@ -36,9 +42,10 @@ public class HexCalc {
 	}
 	
 	/**
-	 * Convert a given hexadecimal number to decimal number
-	 * @param hexNumber  Hexadecimal number in String
-	 * @return           String Decimal form of the Hexadecimal number received
+	 * Convert a given any type of number to decimal number
+	 * @param hexNumber  Number in String
+	 * @param base       Base of Number System 
+	 * @return           String Decimal form of the number and base received
 	 */
 	static String getDecimal(String hexNumber, int base) {
 		int decimal = 0;
@@ -58,9 +65,10 @@ public class HexCalc {
 	}
 	
 	/**
-	 * Convert a given decimal number to hexadecimal number
+	 * Convert a given decimal number to any other type of number
 	 * @param decNumber  Decimal number in String
-	 * @return           String Hexadecimal form of the Decimal number received
+	 * @param base       Base of Number System
+	 * @return           String form of the Decimal number received in other number system base received
 	 */
 	static String getOtherNumberSystem(String decNumber, int base) {
 		String otherNumber = "";
@@ -80,10 +88,11 @@ public class HexCalc {
 	}
 	
 	/**
-	 * Perform addition of hexadecimal numbers -> hexNum1 + hexNum2
-	 * @param hexNum1  Hexadecimal number in String
-	 * @param hexNum2  Hexadecimal number in String
-	 * @return         The hexadecimal sum of the parameters received 
+	 * Perform addition of any type of numbers -> hexNum1 + hexNum2
+	 * @param hexNum1  number in String
+	 * @param hexNum2  number in String
+	 * @param base     base of number system
+	 * @return         sum of the parameters received in base number system 
 	 */
 	static String addNumbers(String hexNum1, String hexNum2, int base) {
 		int sum = 0;
@@ -94,10 +103,10 @@ public class HexCalc {
 	}
 	
 	/**
-	 * Perform subtraction of hexadecimal numbers -> hexNum1 - hexNum2
-	 * @param hexNum1
-	 * @param hexNum2
-	 * @return
+	 * Perform subtraction of any type of numbers -> hexNum1 - hexNum2
+	 * @param hexNum1  number in String
+	 * @param hexNum2  number in String
+	 * @return         Subtraction of the parameters in base number system
 	 */
 	static String subtractNumbers(String hexNum1, String hexNum2, int base) {
 		int difference = 0;
@@ -114,10 +123,10 @@ public class HexCalc {
 	}
 	
 	/**
-	 * Perform multiplication of hexadecimal numbers -> hexNum1 * hexNum2
-	 * @param hexNum1  Hexadecimal number in String
-	 * @param hexNum2  Hexadecimal number in String
-	 * @return         The hexadecimal product of the parameters received
+	 * Perform multiplication of any type of numbers -> hexNum1 * hexNum2
+	 * @param hexNum1  number in String
+	 * @param hexNum2  number in String
+	 * @return         Product of the parameters in base number system 
 	 */
 	static String multiplyNumbers(String hexNum1, String hexNum2, int base) {
 		int product = 0;
@@ -127,10 +136,10 @@ public class HexCalc {
 		return getOtherNumberSystem(String.valueOf(product), base);
 	}
 	/**
-	 * Perform division of hexadecimal numbers -> hexNum1 / hexNum2
-	 * @param hexNum1  Hexadecimal number in String
-	 * @param hexNum2  Hexadecimal number in String
-	 * @return         The hexadecimal division of the parameters received
+	 * Perform division of any type of numbers -> hexNum1 / hexNum2
+	 * @param hexNum1  number in String
+	 * @param hexNum2  number in String
+	 * @return         Division of the parameters in base number system
 	 */
 	static String divideNumbers(String hexNum1, String hexNum2, int base) {
 		int quotient = 0;
@@ -141,9 +150,9 @@ public class HexCalc {
 	}
 	
 	/**
-	 * 
-	 * @param hexNum1  Hexadecimal number in String
-	 * @param hexNum2  Hexadecimal number in String
+	 * Performs comparison between two numbers
+	 * @param hexNum1  number in String
+	 * @param hexNum2  number in String
 	 * @return         'true' if hexNum1 > hexNum2 and 'false' otherwise
 	 */
 	static boolean isGreater(String hexNum1, String hexNum2) {
@@ -164,9 +173,9 @@ public class HexCalc {
 	}
 	
 	/**
-	 * 
-	 * @param hexNum1  Hexadecimal number in String
-	 * @param hexNum2  Hexadecimal number in String
+	 * Performs comparison between two numbers
+	 * @param hexNum1  number in String
+	 * @param hexNum2  number in String
 	 * @return         'true' if hexNum1 < hexNum2 and 'false' otherwise
 	 */
 	static boolean isSmaller(String hexNum1, String hexNum2) {
@@ -187,9 +196,9 @@ public class HexCalc {
 	}
 	
 	/**
-	 * 
-	 * @param hexNum1  Hexadecimal number in String
-	 * @param hexNum2  Hexadecimal number in String
+	 * Performs equality check on two numbers
+	 * @param hexNum1  number in String
+	 * @param hexNum2  number in String
 	 * @return         'true' if hexNum1 == hexNum2 and 'false' otherwise
 	 */
 	static boolean isEqual(String hexNum1, String hexNum2) {
