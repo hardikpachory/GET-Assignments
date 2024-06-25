@@ -31,6 +31,11 @@ public class Marksheet {
 		}
 	}
 	
+	/**
+	 * Calculates the average of Grades
+	 * @return Average grade of the students in double
+	 * @throws ArithmeticException
+	 */
 	static String getAvgGrade() throws ArithmeticException {
 		if(numberOfStudents <= 0) {
 			throw new ArithmeticException("Number of Students not initialized");
@@ -43,6 +48,11 @@ public class Marksheet {
 		return String.format("%.2f", avg);
 	}
 	
+	/**
+	 * Provide the maximum grade of the student
+	 * @return maximum value of grade in double
+	 * @throws ArithmeticException
+	 */
 	static String getMaxGrade() throws ArithmeticException {
 		if(numberOfStudents <= 0) {
 			throw new ArithmeticException("Number of Students not initialized");
@@ -55,6 +65,11 @@ public class Marksheet {
 		return String.format("%.2f", maxGrade);
 	}
 	
+	/**
+	 * Provide the minimum grade of the student
+	 * @return minimum value of the grade in double
+	 * @throws ArithmeticException
+	 */
 	static String getMinGrade() throws ArithmeticException {
 		if(numberOfStudents <= 0) {
 			throw new ArithmeticException("Number of Students not initialized");
@@ -67,6 +82,11 @@ public class Marksheet {
 		return String.format("%.2f", minGrade);
 	}
 	
+	/**
+	 * Provide the passing percentage of the students
+	 * @return passing percent of students in double
+	 * @throws ArithmeticException
+	 */
 	static String getPassPercentage() throws ArithmeticException {
 		if(numberOfStudents <= 0) {
 			throw new ArithmeticException("Number of Students not initialized");
@@ -129,6 +149,7 @@ public class Marksheet {
 						break;
 				default: System.out.println("Invalid choice. Enter again.");
 			}
+			System.out.println();
 		}
 		sc.close();
 	}
