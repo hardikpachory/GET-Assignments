@@ -9,12 +9,11 @@ public class Cart {
 	
 	public Cart() {
 		super();
-		myCart = new HashMap<Item, Integer>();
-		// TODO Auto-generated constructor stub
+		myCart = new HashMap<Item, Integer>(); // Initializing the Cart
 	}
 
 	void addToCart(Item item, Integer quantity) {
-		if(!myCart.containsKey(item)) {
+		if(!myCart.containsKey(item)) { // Checking if an item exists in the cart or not
 		myCart.put(item, quantity);
 		System.out.println("Item Added: " + item);
 		}
@@ -24,21 +23,21 @@ public class Cart {
 	}
 	
 	Integer displayQty(Item item) {
-		if(!myCart.containsKey(item)) {
+		if(!myCart.containsKey(item)) { // Checking if an item exists in the cart or not
 			return -1;
 		}
 		return myCart.get(item);
 	}
 	
 	void updateQty(Item item, Integer quantity) {
-		if(myCart.replace(item, quantity)!=null) {
+		if(myCart.replace(item, quantity)!=null) { // Checking if an item exists in the cart or not
 			System.out.println("Updated Item: " + item);
 		}
 		else System.out.println("Item not found. Item Inserted: " + item);
 	}
 	
 	void deleteItem(Item item) {
-		if(myCart.containsKey(item)) {
+		if(myCart.containsKey(item)) { // Checking if an item exists in the cart or not
 			System.out.println("Item Removed: " + item);
 			myCart.remove(item);
 		}
@@ -49,7 +48,7 @@ public class Cart {
 		double total = 0;
 		if(myCart.size()==0)
 			return total;
-		for(Entry<Item, Integer> entry : myCart.entrySet()) {
+		for(Entry<Item, Integer> entry : myCart.entrySet()) { //Iterating through Entry Set of the map
 			total += (entry.getKey().getItemPrice() * entry.getValue());
 		}
 		return total;

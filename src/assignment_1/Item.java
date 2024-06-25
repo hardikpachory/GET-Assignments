@@ -3,12 +3,14 @@ package assignment_1;
 import java.util.UUID;
 
 public class Item {
+	
+	/*  Data Members  */
 	private String itemId;
 	private String itemName;
 	private String itemDesc;
 	private double itemPrice;
 	
-	
+	/*  Constructors  */
 	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -21,7 +23,7 @@ public class Item {
 		this.itemPrice = itemPrice;
 	}
 	
-	
+	/*  Getters and Setters  */
 	public String getItemId() {
 		return itemId;
 	}
@@ -46,6 +48,8 @@ public class Item {
 	public void setItemPrice(double itemPrice) {
 		this.itemPrice = itemPrice;
 	}
+	
+	/*  toString method to print the details of the object  */
 	@Override
 	public String toString() {
 		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", itemPrice=" + itemPrice + "]";
