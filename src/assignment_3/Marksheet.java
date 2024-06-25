@@ -9,6 +9,10 @@ public class Marksheet {
 	
 	static Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * Takes input of numberOfStudents and their grades
+	 * @throws ArithmeticException
+	 */
 	static void getInput() throws ArithmeticException {
 		System.out.println("Number of Students: ");
 		numberOfStudents = sc.nextInt();
@@ -27,7 +31,10 @@ public class Marksheet {
 		}
 	}
 	
-	static String getAvgGrade() {
+	static String getAvgGrade() throws ArithmeticException {
+		if(numberOfStudents <= 0) {
+			throw new ArithmeticException("Number of Students not initialized");
+		}
 		double avg = 0;
 		for(int i = 0; i < numberOfStudents; i++) {
 			avg += grades[i];
@@ -36,7 +43,10 @@ public class Marksheet {
 		return String.format("%.2f", avg);
 	}
 	
-	static String getMaxGrade() {
+	static String getMaxGrade() throws ArithmeticException {
+		if(numberOfStudents <= 0) {
+			throw new ArithmeticException("Number of Students not initialized");
+		}
 		double maxGrade = grades[0];
 		for(int i = 1; i < numberOfStudents; i++) {
 			if( grades[i] > maxGrade )
@@ -45,7 +55,10 @@ public class Marksheet {
 		return String.format("%.2f", maxGrade);
 	}
 	
-	static String getMinGrade() {
+	static String getMinGrade() throws ArithmeticException {
+		if(numberOfStudents <= 0) {
+			throw new ArithmeticException("Number of Students not initialized");
+		}
 		double minGrade = grades[0];
 		for(int i = 1; i < numberOfStudents; i++) {
 			if( grades[i] < minGrade )
@@ -54,7 +67,10 @@ public class Marksheet {
 		return String.format("%.2f", minGrade);
 	}
 	
-	static String getPassPercentage() {
+	static String getPassPercentage() throws ArithmeticException {
+		if(numberOfStudents <= 0) {
+			throw new ArithmeticException("Number of Students not initialized");
+		}
 		int passTotal = 0;
 		double passPercent;
 		double passingMarks = 40;
@@ -67,15 +83,54 @@ public class Marksheet {
 	}
 
 	public static void main(String[] args) {
-		try {
-		getInput();
-		} catch(ArithmeticException e) {
-			System.out.println("Error Taking Input: " + e.getMessage());
+		int choice = 0;
+		while(choice!=6) {
+			System.out.println("-----   MAIN OPTIONS   -----");
+			System.out.println("1. Add Student and Grade Details");
+			System.out.println("2. Average Grades");
+			System.out.println("3. Maximum Grade");
+			System.out.println("4. Minimum Grade");
+			System.out.println("5. Pass Percentage");
+			System.out.println("6. Exit");
+			System.out.println("Enter choice: ");
+			choice = sc.nextInt();
+			switch(choice) {
+				case 1: try {
+							getInput();
+						} catch (ArithmeticException e) {
+							System.out.println("Arithmetic Exception Occured: " + e.getMessage());
+						}
+						break;
+				case 2: try {
+							System.out.println("Average Grades: " + getAvgGrade());
+						} catch (Exception e) {
+							System.out.println("Arithmetic Exception Occured: " + e.getMessage());
+						}
+						break;
+				case 3: try {
+							System.out.println("Maximum Grade: " + getMaxGrade());
+						} catch (Exception e) {
+							System.out.println("Arithmetic Exception Occured: " + e.getMessage());
+						}
+						break;
+				case 4: try {
+							System.out.println("Minimum Grade: " + getMinGrade());
+						} catch (Exception e) {
+							System.out.println("Arithmetic Exception Occured: " + e.getMessage());
+						}
+						break;
+				case 5: try {
+							System.out.println("Pass Percentage: " + getPassPercentage());
+						} catch (Exception e) {
+							System.out.println("Arithmetic Exception Occured: " + e.getMessage());
+						}
+						break;
+				case 6: System.exit(0);
+						break;
+				default: System.out.println("Invalid choice. Enter again.");
+			}
 		}
-		System.out.println(getAvgGrade());
-		System.out.println(getMaxGrade());
-		System.out.println(getMinGrade());
-		System.out.println(getPassPercentage());
+		sc.close();
 	}
 
 }

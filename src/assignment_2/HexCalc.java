@@ -262,6 +262,8 @@ public class HexCalc {
 				case 9: takeInput();
 						System.out.println("(" + firstNumber +")10 = (" + getDecimal(firstNumber, numberSystemBase)+")"+numberSystemBase);
 						break;
+				case 10: System.exit(0);
+						 break;
 				default: System.out.println("Wrong Choice! Enter Again.");
 					
 			}
