@@ -52,6 +52,7 @@ public class HexCalc {
 		char digit;
 		int length = hexNumber.length();
 		int numDigit;
+		//  123
 		for(int i=0; i < hexNumber.length(); i++) {
 			digit = hexNumber.charAt(i);
 			if(digit >= 'A' && digit <= 'Z') {
@@ -59,6 +60,7 @@ public class HexCalc {
 			} else {
 				numDigit = digit - '0'; // Converting character value to int 
 			}
+			// deci = A*16^3 + 1*16^2  
 			decimal += ( numDigit * ( Math.pow( base, length - ( i + 1 ) ) ) ); // Multiplying with base powers and summation
 		}
 		return String.valueOf(decimal);
@@ -77,6 +79,7 @@ public class HexCalc {
 		while(intDecNumber != 0) {
 			remainder = intDecNumber % base;
 			if(remainder < 10) {
+				// otherNUmber = 652
 				otherNumber = remainder + otherNumber;
 			} else {
 				char hex = (char) ('A' + (remainder - 10)); // TO generate character individual in hexadecimal
