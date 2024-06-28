@@ -105,6 +105,7 @@ public class ArrOperation {
 			nextIndex = iterator + 1;
 			if(nextIndex < size && arr[nextIndex] == arr[iterator]) {
 				totalClumps++;
+				// 1 1 1 2
 				while(nextIndex < size && arr[nextIndex] == arr[iterator]) {
 					nextIndex++;
 					iterator++;;
@@ -144,6 +145,8 @@ public class ArrOperation {
 		int currMirror = 0;
 		int currIndex;
 		int nextIndex = 0;
+		// 1, 2, 3, 8, 9, 3, 2, 1
+		// i=0, nextIndex=7
 		for(int i=0; i < arr.length; i++) {
 			nextIndex = getNextIndex(arr, arr[i]);
 			if(nextIndex>i) {
@@ -158,6 +161,7 @@ public class ArrOperation {
 						if(currIndex == nextIndex) {
 							currMirror = (2 * currMirror) - 1;
 						}
+						//[ 1 2 3 5 | 5 3 2 1 ]
 						else if(currIndex+1 == nextIndex) {
 							currMirror *= 2 ;
 						}
