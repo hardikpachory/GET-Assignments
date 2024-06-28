@@ -79,14 +79,18 @@ public class Search {
 	 * @return       The index of the element if it exists, otherwise an invalid index
 	 */
 	private static int binarySearchHelper(int[] nums, int ele, int low, int high) {
-		if(low>=high) {
-			return -1;
-		}
-		int mid = (low+high)/2;
-		if(nums[mid] == ele)
-			return mid;
-		
-		return (ele>nums[mid])? binarySearchHelper(nums, ele, mid, high) : binarySearchHelper(nums, ele, low, mid);
+		if (high >= low) {
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == ele)
+                return mid;
+
+            if (nums[mid] > ele)
+                return binarySearchHelper(nums, ele, low, mid - 1);
+
+            return binarySearchHelper(nums, ele ,mid + 1, high);
+        }
+        return -1;
 	}
 	
 	public static void main(String[] args) {

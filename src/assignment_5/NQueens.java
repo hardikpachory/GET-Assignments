@@ -44,10 +44,10 @@ public class NQueens {
 	
 	/**
 	 * Helper function to check if the move will be safe or not
-	 * @param board
-	 * @param row
-	 * @param col
-	 * @return
+	 * @param board  Integer matrix
+	 * @param row    current position of row
+	 * @param col    current position of column
+	 * @return       true if the queen is safe else false
 	 */
 	private static boolean isSafeSpot(int[][] board, int row, int col) {
 		int i, j;
@@ -67,9 +67,16 @@ public class NQueens {
         return true;
 	}
 	
-	static boolean nQueen(int board[][], int startRow, int matrixDimention) {
+	/**
+	 * Helper function that will help to setup the board and call the nQueen function 
+	 * @param board            Integer matrix to set
+	 * @param startRow         beginning index   
+	 * @param matrixDimention  The size of the matrix
+	 * @return                 True if nQueen solution exists, else false; 
+	 */
+	static boolean nQueen(int matrixDimention) {
 		setBoard(matrixDimention);
-		return nQueenHelper(arr, startRow, matrixDimention);
+		return nQueenHelper(arr, 0, matrixDimention);
 	}
 	
 	public static void main(String[] args) {
@@ -77,14 +84,14 @@ public class NQueens {
 		System.out.println("Enter N: ");
 		int n = sc.nextInt();
 		sc.close();
-		if (!nQueen(arr, 0, n)) {
+		if (!nQueen(n)) {
 	            System.out.print("Solution does not exist");
 	            return;
 	        }
 		 
 		 for(int i=0; i<n; i++) {
 			 for(int j=0;j<n;j++) {
-				 System.out.print("  " + arr[i][j] + "  ");
+				 System.out.print(arr[i][j] + " ");
 			 }
 			 System.out.println();
 		 }
