@@ -46,6 +46,8 @@ public class MathsHcfAndLcm {
 		}
 		return ((b%a) == 0) ? a : getHCF(b%a, a);
 	}
+	//13/5 -> 3//
+	// 5/3 ->
 	
 	/**
 	 * Returns the Lowest Common Multiple of two numbers
@@ -59,6 +61,9 @@ public class MathsHcfAndLcm {
 			a=b;
 			b=c;
 		}
+		// 15, 25 =  375 = HCF * LCM
+		// HCF = 5
+		// LCM = 75
 		int HCF = getHCF(a,b);
 		return (a*b)/HCF;
 	}
