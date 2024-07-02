@@ -22,7 +22,8 @@ public final class IntSet {
 		mySet = new ArrayList<>();
 		
 		// Initializing the universal set
-		for(int i=0; i<inputSet.size(); i++) {
+		int size = inputSet.size();
+		for(int i=0; i<size; i++) {
 			if(!mySet.contains(inputSet.get(i)))
 				mySet.add(inputSet.get(i));
 		}
@@ -66,7 +67,7 @@ public final class IntSet {
 	 */
 	public List<Integer> getComplement(){
 		List<Integer> complement = new ArrayList<>();
-		for(int i=1; i<=100; i++) {
+		for(int i=1; i<=1000; i++) {
 			if(!mySet.contains(i)) {
 				complement.add(i);
 			}
@@ -118,6 +119,8 @@ public final class IntSet {
 	 * @param otherSet IntSet object
 	 * @return         IntSet object as the union of objects
 	 */
+	
+	//TODO: use size variable rather than function [Completed]
 	public List<Integer> getUnion(IntSet otherSet){
 		List<Integer> union = new ArrayList<>();
 		// adding all the members of mySet to union
@@ -126,7 +129,8 @@ public final class IntSet {
 		}
 		
 		//adding non repeating elements of otherSet to union
-		for(int i=0; i<otherSet.mySet.size(); i++) {
+		int size = otherSet.size();
+		for(int i=0; i<size; i++) { //Not to use .size()
 			if(!mySet.contains(otherSet.mySet.get(i)))
 				union.add(otherSet.mySet.get(i));
 		}

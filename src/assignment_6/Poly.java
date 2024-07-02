@@ -17,9 +17,9 @@ import java.util.List;
  */
 public final class Poly {
 	
-	// Polynomial : 7x3 + 3x2 + 13x + 4
-	// Power: 3 2 1 0    ->  0  1 2 3  [Array Representation]
-	// Coeff: 7 3 13 4   ->  4 13 3 7  [Array Representation]
+	// Polynomial : 9x5 +7x3 + 3x2 + 13x + 4
+	// Power: 3 2 1 0    ->  0  1 2 3 5  [Array Representation]
+	// Coeff: 7 3 13 4   ->  4 13 3 7 9  [Array Representation]
 	
 	private final List<Integer> coeff;
 	private final List<Integer> power;
@@ -86,6 +86,9 @@ public final class Poly {
 	 * @param x The value of variable
 	 * @return  The evaluated value of the polynomial
 	 */
+	// Power: 3 2 1 0    ->  0  1 2 3 5  [Array Representation]
+	// Coeff: 7 3 13 4   ->  4 13 3 7 9  [Array Representation]
+	// X = 2				eva: 4 + (13 * 2^1) + (3* 2^2) + (3*7^7) + 5(9 * 2^5) 
 	public float evaluate(float x) {
 		float evaluation = 0;
 		for(int i=0; i<=this.degree(); i++) {
