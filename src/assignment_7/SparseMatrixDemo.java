@@ -33,6 +33,16 @@ public class SparseMatrixDemo {
             { 0, 0, 0, 1}
 		}, 4,4);
 		
+		SparseMatrix sm3 = new SparseMatrix(new int[][] {
+			{ 1, 9, 0, 1 }, 
+            { 0, 1, 0, 1 }, 
+            { 0, 0, 1, 1 },
+            { 0, 0, 0, 1}
+		}, 4,4);
+		
+		System.out.println("Addition: - ");
+		sm2.addMatrix(sm3);
+		
 		System.out.println("Transpose: ");
 		sm.getTranspose();
 		
