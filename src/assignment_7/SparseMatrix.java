@@ -90,8 +90,6 @@ public final class SparseMatrix {
 				}
 			}
 		}
-		System.out.println("New Matrix initialized:");
-		displaySparse();
 	}
 	
 	/**
@@ -105,8 +103,6 @@ public final class SparseMatrix {
 		numberOfRows = rows;
 		sparseMatrix = new LinkedHashMap<Index, Integer>();
 		sparseMatrix.putAll(map);
-		System.out.println("New Matrix initialized:");
-		displaySparse();
 	}
 	
 	/**
@@ -194,6 +190,7 @@ public final class SparseMatrix {
 			transpose.put( new Index( index.getCol(), index.getRow() ), entry.getValue() );
 		}
 		SparseMatrix matrix = new SparseMatrix(transpose, numberOfColumns, numberOfRows);
+//		System.out.println("Transpose Performed:");
 //		matrix.displaySparse();
 		return matrix;
 	}
@@ -242,6 +239,8 @@ public final class SparseMatrix {
 			}
 		}
 		SparseMatrix ans = new SparseMatrix(result, numberOfRows, numberOfColumns);
+		System.out.println("Addition Performed:");
+		ans.displaySparse();
 		return ans;
 	}
 	
@@ -273,6 +272,8 @@ public final class SparseMatrix {
             } 
         }
 		SparseMatrix product = new SparseMatrix(C, row1, col2);
+		System.out.println("Multiplication Performed:");
+		product.displaySparse();
 		return product;
 	}
 }
