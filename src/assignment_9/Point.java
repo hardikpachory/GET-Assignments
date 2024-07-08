@@ -1,6 +1,10 @@
 package assignment_9;
 
 public class Point {
+	/**
+	 * Class Point will be holding the coordinates of various points/centers of shapes
+	 * present on the virtual screen.
+	 */
 	int xCord;
 	int yCord;
 	

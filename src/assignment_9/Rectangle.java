@@ -3,6 +3,10 @@ package assignment_9;
 import java.util.Date;
 
 public class Rectangle implements Shape {
+	/**
+	 * The class Rectangle is implementation of the Shape interface that overrides all the 
+	 * functions and provides functionality of Rectangle as a shape
+	 */
 	Point origin;
 	Date timestamp;
 	double length;

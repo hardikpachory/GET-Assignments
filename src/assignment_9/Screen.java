@@ -4,6 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Screen {
+	/**
+	 * The class screen is the implementation of the virtual screen on which various types of
+	 * the shapes would be imparted.
+	 */
+
 	int Xmax;
 	int Ymax;
 	List<Shape> shapesOnScreen;

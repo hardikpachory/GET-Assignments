@@ -3,7 +3,10 @@ package assignment_9;
 import java.util.Date;
 
 public class Triangle implements Shape {
-
+	/**
+	 * The class Triangle is implementation of the Shape interface that overrides all the 
+	 * functions and provides functionality of Triangle as a shape
+	 */
 	Point origin;
 	double width;
 	double height;

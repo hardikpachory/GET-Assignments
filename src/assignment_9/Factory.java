@@ -3,6 +3,11 @@ package assignment_9;
 import java.util.List;
 
 public class Factory {
+	/**
+	 * The Factory class helps us to implement the Factory Design Pattern
+	 * by limiting the creation of objects to this particular class based
+	 * on the input from the user.
+	 */
 	public static Shape createShape(ShapeType shapeType, Point point, List<Integer> dimension) {
 		Shape shape;
 		if(ShapeType.SQUARE.equals(shapeType)) {

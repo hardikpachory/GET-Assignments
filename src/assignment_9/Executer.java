@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Executer {
-	
+	/**
+	 * The Program to execute the functionality of our factory pattern program.
+	 */
 	public static void main(String[] args) {
 		
 		Screen screen = null;

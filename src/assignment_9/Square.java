@@ -3,6 +3,10 @@ package assignment_9;
 import java.util.Date;
 
 public class Square implements Shape {
+	/**
+	 * The class Square is implementation of the Shape interface that overrides all the 
+	 * functions and provides functionality of Square as a shape
+	 */
 	Point origin;
 	Date timestamp;
 	double width;

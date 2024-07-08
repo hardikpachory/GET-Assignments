@@ -3,6 +3,10 @@ package assignment_9;
 import java.util.Date;
 
 public class Circle implements Shape {
+	/**
+	 * The class Circle is implementation of the Shape interface that overrides all the 
+	 * functions and provides functionality of circle as a shape
+	 */
 	Point origin;
 	double radius;
 	Date timestamp;

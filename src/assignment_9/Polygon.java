@@ -3,6 +3,10 @@ package assignment_9;
 import java.util.Date;
 
 public class Polygon implements Shape {
+	/**
+	 * The class Polygon is implementation of the Shape interface that overrides all the 
+	 * functions and provides functionality of Polygon as a shape
+	 */
 	Point origin; // Center Point for Polygons
 	Date timestamp;
 	double width;
