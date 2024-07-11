@@ -132,3 +132,75 @@ CREATE TABLE IF NOT EXISTS `storefront`.`order` (
     ON UPDATE NO ACTION);
 
 -- Assignment 1 Complete
+
+-- Display Id, Title, Category Title, Price of the products which are Active and 
+-- recently added products should be at top.
+select p.productid, p.name, p.price, c.name as Category
+from product p 
+left join category c on p.productid=c.productid
+order by p.productid desc  -- Ordering by productid as it is auto-incrimented. Item inserted at last
+limit 5;                   -- will be having maxing id.  
+
+-- Display the list of products which don't have any images.
+select productid, name, price 
+from product
+where productid NOT IN
+(
+  select p.productid
+  from product p
+  inner join image on p.productid=image.productid
+);
+
+-- Display all Id, Title and Parent Category Title for all the Categories listed, sorted by 
+-- Parent Category Title and then Category Title. (If Category is top category then Parent 
+-- Category Title column should display “Top Category” as value.)
+SELECT c.cateogryid, c.name, 
+       IF(c.parentCategoryId IS NULL, "Top Category", c.parentCategoryId) as ParentCategory
+FROM categoryone c
+LEFT JOIN categoryone cp ON cp.cateogryid = c.parentCategoryId
+ORDER BY ParentCategory, c.name;
+
+-- Display Id, Title, Parent Category Title of all the leaf Categories 
+-- (categories which are not parent of any other category)
+select categoryid, name, parentCategoryId
+from category
+where categoryid not in(
+  select distinct parentCategoryId 
+  from category where parentCategoryId is not null
+);
+
+-- Display Product Title, Price & Description which falls into particular category Title (i.e. “Mobile”)
+select p.name, price,c.name, description
+from product p
+inner join category c on c.productid = p.productid
+where c.name="Optimum";
+
+-- Display the list of Products whose Quantity on hand (Inventory) is under 50.
+select productid, name, description, price
+from product
+where stockQuantity<50;
+
+--      **************         Assignment 2 Complete       ************    
+
+
+--      **************         Assignment 3 BEGINS       ************
+
+--Display Recent 50 Orders placed (Id, Order Date, Order Total).
+select orderid, orderdate, ordertotal
+from order
+order by orderdate desc
+limit 50;
+
+-- Display 10 most expensive Orders.
+select orderid, orderdate, ordertotal
+from order
+order by ordertotal desc
+limit 10;
+
+-- Display all the Orders which are placed more than 10 days old and one 
+-- or more items from those orders are still not shipped.
+select orderid, orderdate, ordertotal
+from order
+where DATEDIFF(CURDATE(), DATE(orderdate))>10 and orderstatus='P';
+
+-- Display list of shoppers which haven't ordered anything since last month.
