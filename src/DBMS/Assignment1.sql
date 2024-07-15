@@ -131,7 +131,11 @@ CREATE TABLE IF NOT EXISTS `storefront`.`order` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
--- Assignment 1 Complete
+--      **************         Assignment 1 Ends       ************
+
+
+
+--      **************         Assignment 2 BEGINS       ************
 
 -- Display Id, Title, Category Title, Price of the products which are Active and 
 -- recently added products should be at top.
@@ -204,3 +208,33 @@ from order
 where DATEDIFF(CURDATE(), DATE(orderdate))>10 and orderstatus='P';
 
 -- Display list of shoppers which haven't ordered anything since last month.
+SELECT c.customer_id, c.customer_name
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id AND o.order_date >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)
+WHERE o.order_id IS NULL;
+
+-- Display list of shopper along with orders placed by them in last 15 days. 
+SELECT O.orderID, U.username, O.dateOfOrder
+FROM userOrder O
+LEFT JOIN websiteUser U
+ON U.userID = O.userID
+WHERE O.dateOfOrder > CURRENT_DATE - 15;
+
+-- Display list of order items which are in “shipped” state for 
+-- particular Order Id (i.e.: 1020))
+SELECT P.name
+FROM userOrder O    
+LEFT JOIN product P
+ON P.productID = O.productID
+WHERE O.orderID = 1020  AND orderStatus = 'S';
+
+-- Display list of order items along with order placed date which 
+-- fall between Rs 20 to Rs 50 price.
+SELECT O.dateOfOrder, P.name
+FROM userOrder O    
+LEFT JOIN product P
+ON P.productID = O.productID
+WHERE O.totalCost between 20 AND 50;
+
+
+--      **************         Assignment 3 End         ************
