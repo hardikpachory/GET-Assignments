@@ -40,16 +40,8 @@ CREATE TABLE IF NOT EXISTS `category` (
 );
 
 -- Applying the Self Referencing property of the Category
+
 ALTER TABLE `storefront`.`category` 
-DROP FOREIGN KEY ``;
-ALTER TABLE `storefront`.`category` 
-CHANGE COLUMN `parentCategoryId` `parentCategoryId` INT NULL DEFAULT NULL ,
-ADD INDEX `categoryTocategory_idx` (`parentCategoryId` ASC) VISIBLE;
-;
-ALTER TABLE `storefront`.`category` 
-ADD CONSTRAINT `productTocategory`
-  FOREIGN KEY (`productid`)
-  REFERENCES `storefront`.`product` (`productid`),
 ADD CONSTRAINT `categoryTocategory`
   FOREIGN KEY (`parentCategoryId`)
   REFERENCES `storefront`.`category` (`cateogryid`)
